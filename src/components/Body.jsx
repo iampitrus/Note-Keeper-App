@@ -3,13 +3,21 @@ import CreateNote from "./CreateNote";
 import { motion } from "framer-motion";
 import Notes from "./Notes";
 
-function Title() {
+function Body() {
   const [isClicked, setIsClicked] = useState(false);
   const [newNote, setNewNote] = useState([]);
 
   function addNote(inputed) {
     setNewNote((prevNotes) => {
       return [...prevNotes, inputed];
+    });
+  }
+
+  function deleteNote(id) {
+    setNewNote((prev) => {
+      return prev.filter((item, index) => {
+        return index !== id;
+      });
     });
   }
   return (
@@ -30,18 +38,24 @@ function Title() {
             {isClicked ? "Done" : "Take Note"}
           </motion.button>
         </div>
-        <img src="./mainkeeper.png" alt="think" />
+        <img src="./images/mainkeeper.png" alt="think" />
       </div>
 
       {isClicked && <CreateNote onAdd={addNote} />}
       {newNote[0] !== undefined && <h1>Your Notes</h1>}
       <div className="notes-container">
         {newNote.map(({ title, note }, index) => (
-          <Notes title={title} note={note} key={index} />
+          <Notes
+            title={title}
+            note={note}
+            key={index}
+            identity={index}
+            deleteNote={deleteNote}
+          />
         ))}
       </div>
     </main>
   );
 }
 
-export default Title;
+export default Body;
