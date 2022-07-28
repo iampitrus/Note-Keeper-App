@@ -1,72 +1,79 @@
-# Getting Started with Create React App
+# Note Keeper App with React
 
-This is my first react project on completion of "The Complete Web Development Bootcamp" by @angelayu
+## Table of contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Overview](#overview)
+  - [The Project](#the-project)
+  - [Preview](#preview)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+### The Project
 
-### `npm start`
+Users should be able to:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Add and Delete notes
+- See hover states for all interactive elements on the page
+- See more informations and features of a note by clicking on the note
+- See appealing animations on most interactive elements
+- See the Zoom in animation on the add button when Take Note is clicked
+- See layout animation when a note is clicked
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Preview
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+https://user-images.githubusercontent.com/66377818/181598091-4ab14476-82df-42b2-a27c-e78461069dba.mp4
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Built with
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- React Hook
+- [React](https://reactjs.org/) - JS library
+- [Framer Motion](https://framer.com/motion/) - For Animations
+- [Material UI icons](https://mui.com/material-ui/material-icons/) - For Icons
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### What I learned
 
-### `npm run eject`
+I learnt how to handle complex states in react, using useState hook.
+I also learnt how to use the animation library "Framer-Motion" to make shared layout animation, tbh it took me more time to get around this than it took to actually make the whole App.
+Some code i'm proud of:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```js
+<AnimateSharedLayout>
+  {isNoteExpanded ? (
+    <>
+      <Backdrop handleClose={collapseNote} />
+      <ExpandedNote
+        collapse={collapseNote}
+        deleteNote={deleteNote}
+        identity={identity}
+      >
+        <NoteContent title={title} note={note} />
+      </ExpandedNote>
+    </>
+  ) : (
+    <CompactedNote expand={expandNote}>
+      <NoteContent title={title} note={note} />
+    </CompactedNote>
+  )}
+</AnimateSharedLayout>
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+That helped me to create shared animations between two components
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Author
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- LinkedIn - [Peter Ogbonna](https://www.linkedin.com/in/peter-ogbonna-9889721b2/)
+- Twitter - [@peterintech](https://www.twitter.com/Peterintech)
 
-## Learn More
+## Acknowledgments
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+All thanks to [Dr. Angela Yu](https://www.twitter.com/yu_angela) from [The-App-Brewery](https://www.appbrewery.co/) whose course i went through, that helped me build a solid foundation in React and Web development in general, and to Fireship, whose Modal tutorial helped me create mine which was added in the project, and to the awesome team at [Framer](https://framer.com/) for awesome animation library to help bootstrap animations
