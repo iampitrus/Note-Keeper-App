@@ -23,15 +23,19 @@ body {
 
 header h1 {
   margin-top: 1rem;
+  text-align: center;
   color: var(--accent);
 }
 main {
-  margin: 8% 23%;
+  margin: 5% 23%;
 }
 h1 {
   font-weight: 600;
   color: var(--accent);
   text-align: center;
+}
+span {
+  color: var(--primary);
 }
 .title {
   display: flex;
@@ -65,9 +69,6 @@ h1 {
   padding: 10px;
 }
 
-span {
-  color: var(--primary);
-}
 form.create-note {
   position: relative;
   width: 480px;
@@ -231,4 +232,31 @@ form.create-note button {
 footer p {
   color: #878787;
   text-align: center;
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .title {
+    text-align: center;
+    display: block;
+  }
+  .title-left {
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  main {
+    margin: 5%;
+  }
+  form.create-note {
+    width: 90%;
+  }
+  .expanded {
+    left: 5%;
+    width: 90%;
+  }
+  .notes-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
 }
